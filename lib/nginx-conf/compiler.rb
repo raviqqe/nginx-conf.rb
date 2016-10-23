@@ -19,7 +19,7 @@ class Compiler
     when -> (o) { o.respond_to? :to_s }
       object.to_s
     else
-      exit "You sucks!"
+      exit "The object doesn't respond to to_s method.: #{o}"
     end
   end
 
