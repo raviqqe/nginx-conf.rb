@@ -1,7 +1,10 @@
-require_relative 'conf'
+require 'block-is-hash'
+
+require_relative 'compiler'
 
 
 
 def nginx_conf &block
-  Conf.new(%i(server load_module), &block).to_s
+  repeats = %i(server load_module)
+  Compiler.new(repeats).compile block_is_hash(repeats, &block)
 end
