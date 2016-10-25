@@ -9,6 +9,17 @@ file = nginx_conf do
   http do
     server do
       listen 80
+
+      set '$x', 123
+      set '$y', 456
+
+      if_ '(some bool)' do
+        foo
+      end
+
+      if_ '(another bool)' do
+        foo
+      end
     end
 
     server do
