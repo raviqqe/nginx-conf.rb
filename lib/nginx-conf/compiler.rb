@@ -35,7 +35,7 @@ class Compiler
     hash.map do |key, values|
       if @repeats.include? key
         values.map do |config|
-          compile_hash_item key, [config]
+          compile_hash_item key, config
         end.join
       else
         compile_hash_item key, values
