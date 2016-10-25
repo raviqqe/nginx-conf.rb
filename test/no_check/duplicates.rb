@@ -13,11 +13,11 @@ file = nginx_conf do
       set '$x', 123
       set '$y', 456
 
-      if_ '(some bool)' do
+      if_ 'some bool' do
         foo
       end
 
-      if_ '(another bool)' do
+      if_ 'another bool' do
         foo
       end
     end

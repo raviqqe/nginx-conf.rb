@@ -45,6 +45,7 @@ class Compiler
 
   def compile_hash_item key, values
     values = [values] if not values.is_a? Array
+    values[0] = "(#{values[0]})" if key == :if
 
     values_str = compile_elem(values)
     indent(key.to_s + (values_str != '' ? ' ' + values_str : '') \
