@@ -8,10 +8,18 @@ def nginx_conf &block
   repeats = %i(server load_module fastcgi_param set if_)
 
   hash = block_is_hash repeats, &block
-  replace_if = lambda { |o| replace_elem :if_, :if, o }
-  replace_if.call hash
-  replace_if.call repeats
+
+  replace_elems hash
+  replace_elems repeats
+
   Compiler.new(repeats).compile hash
+end
+
+
+def replace_elems object
+  { if_: :if, return_: :return }.each do |origin, subst|
+    replace_elem origin, subst, object
+  end
 end
 
 
