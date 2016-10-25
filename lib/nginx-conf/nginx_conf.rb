@@ -9,22 +9,22 @@ def nginx_conf &block
 
   hash = block_is_hash repeats, &block
 
-  replace_elems hash
-  replace_elems repeats
+  replace_elems! hash
+  replace_elems! repeats
 
   Compiler.new(repeats).compile hash
 end
 
 
-def replace_elems object
+def replace_elems! object
   { if_: :if, return_: :return }.each do |origin, subst|
-    replace_elem origin, subst, object
+    replace_elem! origin, subst, object
   end
 end
 
 
-def replace_elem origin, subst, object
-  replace = lambda { |o| replace_elem origin, subst, o }
+def replace_elem! origin, subst, object
+  replace = lambda { |o| replace_elem! origin, subst, o }
 
   case object
   when Hash
