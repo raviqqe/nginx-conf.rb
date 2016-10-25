@@ -34,8 +34,8 @@ class Compiler
   def compile_hash_without_brackets hash
     hash.map do |key, values|
       if @repeats.include? key
-        values.map do |config|
-          compile_hash_item key, config
+        values.map do |values_per_item|
+          compile_hash_item key, values_per_item
         end.join
       else
         compile_hash_item key, values
