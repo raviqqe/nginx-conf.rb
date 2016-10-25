@@ -36,11 +36,11 @@ class Compiler
       if @repeats.include? key
         values.map do |config|
           compile_hash_item key, [config]
-        end.join()
+        end.join
       else
         compile_hash_item key, values
       end
-    end.join()
+    end.join
   end
 
   def compile_hash_item key, values
