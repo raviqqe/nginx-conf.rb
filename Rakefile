@@ -30,6 +30,10 @@ task :test => :install do
     sh %Q(sudo nginx -t -c #{conf})
   end
 
+  Dir.glob('test/no_check/*.rb').each do |file|
+    ruby file
+  end
+
   rm_r TMP_DIR
 end
 
