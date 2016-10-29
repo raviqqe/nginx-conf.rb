@@ -12,6 +12,7 @@ Gem::Specification.new do |s|
   s.homepage    = 'https://github.com/raviqqe/nginx-conf.rb'
 
   s.add_dependency 'block-is-hash', '~> 0'
+  s.add_dependency 'map-rec', '~> 0'
 
   s.files       = Dir['lib/**/*']
 end
