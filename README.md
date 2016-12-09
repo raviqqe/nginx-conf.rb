@@ -16,7 +16,7 @@ $ gem install nginx-conf
 
 Code:
 
-```
+```ruby
 require 'nginx-conf'
 
 c = nginx_conf do
@@ -40,7 +40,7 @@ puts c
 
 Output:
 
-```
+```nginx
 user www;
 http {
     server {
